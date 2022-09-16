@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-const ToDoForm = ({ addTask }) => {
-  const [userImput, setUserImput] = useState("");
+function ToDoForm({ addTask }) {
+  const [userImput, setUserImput] = useState('');
 
   const handleChange = (e) => {
     setUserImput(e.currentTarget.value);
@@ -10,11 +10,11 @@ const ToDoForm = ({ addTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addTask(userImput);
-    setUserImput("");
+    setUserImput('');
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       handleSubmit(e);
     }
   };
@@ -25,11 +25,11 @@ const ToDoForm = ({ addTask }) => {
         type="text"
         onChange={handleChange}
         onKeyDown={handleKeyPress}
-        placeholder={"Введите значение ..."}
+        placeholder="Введите значение ..."
       />
-      <button>Сохранить</button>
+      <button type="button">Сохранить</button>
     </form>
   );
-};
+}
 
 export default ToDoForm;

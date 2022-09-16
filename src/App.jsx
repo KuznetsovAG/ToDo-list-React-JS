@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import ToDo from "./components/ToDo";
-import ToDoForm from "./components/ToDoForm";
+import React, { useState } from 'react';
+
+import ToDo from './components/ToDo';
+import ToDoForm from './components/ToDoForm';
+
 function App() {
   const [todos, setTodos] = useState([]);
 
@@ -25,9 +27,7 @@ function App() {
         <h1>Список задач: {todos.length}</h1>
       </header>
       <ToDoForm addTask={addTask} />
-      {todos.map((todo) => {
-        return <ToDo todo={todo} key={todo.id} removeTask={removeTask} />;
-      })}
+      {todos.map((todo) => <ToDo todo={todo} key={todo.id} removeTask={removeTask} />)}
     </div>
   );
 }
