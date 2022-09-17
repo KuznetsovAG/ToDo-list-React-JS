@@ -32,7 +32,7 @@
   background: transparent;
 }
 
-.App button {
+.App .button {
   padding: 16px 7px;
   border: none;
   border-radius: 0 4px 4px 0;
