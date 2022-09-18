@@ -4,10 +4,10 @@ import ToDo from './components/ToDo';
 import ToDoForm from './components/ToDoForm';
 
 function App() {
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('value')) || []);
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todo-list')) || []);
 
   useEffect(() => {
-    localStorage.setItem('value', JSON.stringify(todos));
+    localStorage.setItem('todo-list', JSON.stringify(todos));
   }, [todos]);
 
   const addTask = (userInput) => {
@@ -23,7 +23,6 @@ function App() {
 
   const removeTask = (id) => {
     setTodos([...todos.filter((todo) => todo.id !== id)]);
-    // localStorage.removeItem('value');
   };
 
   return (
