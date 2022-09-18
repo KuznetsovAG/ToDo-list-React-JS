@@ -32,7 +32,7 @@
   background: transparent;
 }
 
-.App button {
+.App .button {
   padding: 16px 7px;
   border: none;
   border-radius: 0 4px 4px 0;
@@ -53,6 +53,7 @@
   float: right;
   font-size: 22px;
   position: relative;
+  border-radius: 30px;
   left: -4px;
   bottom: 5px;
 }

@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import ToDo from './components/ToDo';
 import ToDoForm from './components/ToDoForm';
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todo-list')) || []);
+
+  useEffect(() => {
+    localStorage.setItem('todo-list', JSON.stringify(todos));
+  }, [todos]);
 
   const addTask = (userInput) => {
     if (userInput) {
       const newItem = {
-        id: Math.random().toString(36).substr(2, 9),
+        id: Math.random().toString(36).substring(2, 9),
         task: userInput,
         complete: false,
       };
@@ -27,7 +31,9 @@ function App() {
         <h1>Список задач: {todos.length}</h1>
       </header>
       <ToDoForm addTask={addTask} />
-      {todos.map((todo) => <ToDo todo={todo} key={todo.id} removeTask={removeTask} />)}
+      {todos.map((todo) => (
+        <ToDo todo={todo} key={todo.id} removeTask={removeTask} />
+      ))}
     </div>
   );
 }
