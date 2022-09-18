@@ -16,7 +16,7 @@ You may also see any lint errors in the console.
 
 # Hi there, I'm Alex ![](https://github.com/blackcater/blackcater/raw/main/images/Hi.gif)
 
-### Junior Frontend Developer from Russia 🇷🇺
+### Frontend Developer from Russia 🇷🇺
 
 ### This is my project Todo-list React JS
 
@@ -25,7 +25,8 @@ You may also see any lint errors in the console.
 1. HTML
 2. CSS
 3. React JS
-4. JSX
-5. localStorage
+4. LocalStorage
 
 ## Demo
+
+![Image text](https://user-images.githubusercontent.com/88052358/190898156-39cee1c7-7cd5-413f-bfca-c96dcdf9fb0f.png)

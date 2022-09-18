@@ -23,6 +23,7 @@ function App() {
 
   const removeTask = (id) => {
     setTodos([...todos.filter((todo) => todo.id !== id)]);
+    // localStorage.removeItem('value');
   };
 
   return (
