@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { FC } from 'react';
 import ToDo from './components/ToDo';
 import ToDoForm from './components/ToDoForm';
+import { useAppDispatch, useAppSelector } from './hooksApp/hooks';
+import { addTodo, removeTodo } from './reducer/TodoReducer';
 
-function App() {
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todo-list')) || []);
+const App: FC = () => {
+  const dispatch = useAppDispatch();
+  const { todos } = useAppSelector((state) => state.TodoReducer);
 
-  useEffect(() => {
-    localStorage.setItem('todo-list', JSON.stringify(todos));
-  }, [todos]);
 
-  const addTask = (userInput) => {
-    if (userInput) {
+
+  const addTask = (userInput:string) => {
+    if (userInput.trim()) {
       const newItem = {
         id: Math.random().toString(36).substring(2, 9),
         task: userInput,
         complete: false,
       };
-      setTodos([...todos, newItem]);
+      dispatch(addTodo(newItem));
     }
   };
 
-  const removeTask = (id) => {
-    setTodos([...todos.filter((todo) => todo.id !== id)]);
+  const removeTask = (id:string) => {
+    dispatch(removeTodo(id));
   };
 
   return (

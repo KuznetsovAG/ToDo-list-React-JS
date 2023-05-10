@@ -1,36 +1,41 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
-function ToDoForm({ addTask }) {
+interface ToDoFormProps {
+  addTask: (userInput:string) => void
+}
+
+const ToDoForm: FC<ToDoFormProps> = ({ addTask }) => {
   const [userImput, setUserImput] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserImput(e.currentTarget.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent) => {
     e.preventDefault();
     addTask(userImput);
     setUserImput('');
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleSubmit(e);
     }
   };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
       <input
         value={userImput}
         type="text"
-        onChange={handleChange}
         onKeyDown={handleKeyPress}
+        onChange={handleChange}
         placeholder="Введите значение ..."
       />
       <button type="button" className="button" onClick={handleSubmit}>
         Сохранить
       </button>
-    </form>
+      </div>
   );
 }
 
